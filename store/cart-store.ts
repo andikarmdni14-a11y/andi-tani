@@ -73,7 +73,8 @@ export const useCartStore = create<CartState>()(
     {
       name: "andi-tani-cart",
       version: 1,
-      storage: createJSONStorage(() => localStorage),
+      // window.localStorage: hanya ada di browser; di server Node tidak disentuh
+storage: createJSONStorage(() => window.localStorage),
       partialize: (state) => ({ items: state.items }),
       // Dihidrasi manual di client (CartHydration) agar tidak terjadi
       // hydration mismatch antara render server dan localStorage.

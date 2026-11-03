@@ -5,13 +5,23 @@ import { useState, useTransition } from "react";
 import { setProductActive } from "@/app/admin/actions";
 import { secondaryButton } from "@/components/admin/fields";
 
-export default function ProductActiveToggle({ id, isActive, name }: { id: string; isActive: boolean; name: string }) {
+export default function ProductActiveToggle({
+  id,
+  isActive,
+  name,
+  className = "",
+}: {
+  id: string;
+  isActive: boolean;
+  name: string;
+  className?: string;
+}) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
 
   return (
-    <div>
+    <div className={className}>
       <button
         type="button"
         disabled={pending}
@@ -23,7 +33,7 @@ export default function ProductActiveToggle({ id, isActive, name }: { id: string
             else router.refresh();
           })
         }
-        className={secondaryButton}
+        className={`${secondaryButton} w-full`}
         aria-label={`${isActive ? "Nonaktifkan" : "Aktifkan"} ${name}`}
       >
         {pending ? "Menyimpan..." : isActive ? "Nonaktifkan" : "Aktifkan"}

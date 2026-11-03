@@ -35,7 +35,7 @@ export default function SiteFooter() {
           </a>
         </div>
       </div>
-      <p className="border-t border-surface-light/15 py-4 text-center text-xs text-surface-light/60">
+      <p className="border-t border-surface-light/15 py-4 text-center text-xs text-surface-light/80">
         Andi Tani (Teman Hijau)
       </p>
     </footer>
